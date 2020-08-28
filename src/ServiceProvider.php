@@ -23,10 +23,34 @@ class ServiceProvider extends AddonServiceProvider
     {
         parent::boot();
 
+        $this
+            ->bootAddonViews()
+            ->bootAddonTranslations()
+            ->bootAddonNav();
+    }
+
+    public function bootAddonViews()
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'mailup');
+
+        return $this;
+    }
+
+    public function bootAddonTranslations()
+    {
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'mailup');
+
+        return $this;
+    }
+
+    public function bootAddonNav()
+    {
         Nav::extend(function ($nav) {
             $nav->tools('MailUp')
                 ->route('mailup.settings.edit')
                 ->icon('drawer-file');
         });
+
+        return $this;
     }
 }
