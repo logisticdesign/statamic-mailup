@@ -1,0 +1,22 @@
+{
+    "name": "logisticdesign/statamic-mailup",
+    "autoload": {
+        "psr-4": {
+            "Logisticdesign\\Mailup\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "MailUp",
+            "description": "MailUp subscription for Statamic v3"
+        },
+        "laravel": {
+            "providers": [
+                "Logisticdesign\\Mailup\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "3.0.*"
+    }
+}

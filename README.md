@@ -1,2 +1,2 @@
 # statamic-mailup
-Mailup subscription addon for Statamic v3
+MailUp subscription addon for Statamic v3
