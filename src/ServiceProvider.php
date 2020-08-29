@@ -31,7 +31,7 @@ class ServiceProvider extends AddonServiceProvider
 
     public function bootAddonViews()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'mailup');
+        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'mailup');
 
         return $this;
     }

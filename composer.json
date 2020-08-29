@@ -6,6 +6,14 @@
             "Logisticdesign\\Mailup\\": "src"
         }
     },
+    "authors": [
+        {
+            "name": "Logistic Design"
+        }
+    ],
+    "support": {
+        "email": "dev@logisticdesign.it"
+    },
     "extra": {
         "statamic": {
             "name": "MailUp",
