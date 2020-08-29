@@ -4,7 +4,6 @@ namespace Logisticdesign\Mailup;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
-use Logisticdesign\Mailup\Exceptions\MailupException;
 
 class Mailup
 {
@@ -104,16 +103,6 @@ class Mailup
     }
 
     /**
-     * Have valid configuration for subscription.
-     *
-     * @return bool
-     */
-    public function validConfigForSubscription()
-    {
-        return $this->endpoint() and $this->listId() and $this->emailField();
-    }
-
-    /**
      * Subscription response status codes.
      *
      * @return array
@@ -164,15 +153,7 @@ class Mailup
             $this->endpoint().'/frontend/xmlsubscribe.aspx?'.http_build_query($params)
         );
 
-        $statusCode = $response->json();
-
-        if (! in_array($statusCode, $this->validStatusCode())) {
-            $message = $this->status($statusCode, __('mailup::messages.generic_error'));
-
-            throw new MailupException(__("mailup::messages.{$message}"), $statusCode);
-        }
-
-        return $statusCode;
+        return $response->json();
     }
 
     /**
@@ -182,7 +163,17 @@ class Mailup
      */
     public function validStatusCode()
     {
-        return [0, 3];
+        return [0];
+    }
+
+    /**
+     * Is a valid response status code.
+     *
+     * @return bool
+     */
+    public function isValidStatusCode($code)
+    {
+        return in_array($code, $this->validStatusCode());
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Logisticdesign\Mailup;
 
 use Logisticdesign\Mailup\Events\Subscribe;
+use Logisticdesign\Mailup\Tags\MailupTags;
 use Statamic\Events\FormSubmitted;
 use Statamic\Facades\CP\Nav;
 use Statamic\Providers\AddonServiceProvider;
@@ -17,6 +18,10 @@ class ServiceProvider extends AddonServiceProvider
         FormSubmitted::class => [
             Subscribe::class,
         ],
+    ];
+
+    protected $tags = [
+        MailupTags::class,
     ];
 
     public function boot()
