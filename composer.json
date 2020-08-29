@@ -1,5 +1,6 @@
 {
     "name": "logisticdesign/statamic-mailup",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Logisticdesign\\Mailup\\": "src"
