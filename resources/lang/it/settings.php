@@ -5,10 +5,10 @@ return [
     'endpoint_descr' => 'es. http://xxxxxxxxx.emailsp.com',
 
     'list_id' => 'ID Lista',
-    'list_id_descr' => 'Lo trovi nella sidebar del pannell di MailUp, vicino al nome.',
+    'list_id_descr' => 'Lo trovi nella sidebar del pannello MailUp, vicino al nome.',
 
-    'email_field' => 'Nome campo Email',
-    'email_field_descr' => "Nome del campo della form per l'iscrizione.",
+    'email_field' => 'Nome del campo Email',
+    'email_field_descr' => "Nome del campo della form utilizzato per l'iscrizione.",
 
     'double_optin' => 'Double Opt-In',
     'double_optin_descr' => "Il destinatario riceve una mail di conferma prima dell'iscrizione.",
