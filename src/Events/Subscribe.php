@@ -26,11 +26,23 @@ class Subscribe
 
         $status = Mailup::status($code, 'generic_error');
 
-        session()->flash('mailup::subscription', [
-            'code' => $code,
-            'message' => __("mailup::messages.{$status}"),
-            'success' => Mailup::isValidStatusCode($code),
+        $event->submission->data($event->submission->data() + [
+            'mailup' => [
+                'code' => $code,
+                'message' => __("mailup::messages.{$status}"),
+                'success' => Mailup::isValidStatusCode($code),
+            ],
         ]);
+
+        session()->flash(
+            'mailup::subscription',
+            $event->submission->get('mailup')
+        );
+
+        session()->flash(
+            "mailup::form.{$event->submission->form()->handle()}.subscription",
+            $event->submission->get('mailup')
+        );
     }
 
     protected function canHandleSubscription($event)
