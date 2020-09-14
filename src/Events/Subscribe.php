@@ -18,10 +18,13 @@ class Subscribe
 
     public function handle(FormSubmitted $event)
     {
-        if (! $this->canHandleSubscription($event)) {
-            return false;
+        if ($this->canHandleSubscription($event)) {
+            return $this->subscribe($event);
         }
+    }
 
+    protected function subscribe($event)
+    {
         $code = Mailup::subscribe($event->submission->data());
 
         $status = Mailup::status($code, 'generic_error');
